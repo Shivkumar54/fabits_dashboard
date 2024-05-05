@@ -4,18 +4,28 @@ import bell from "../images/notification.svg"
 import user from "../images/userimage.svg"
 import more from "../images/more.svg"
 import hamburger from "../images/hamburger.svg"
+import userIcon from "../images/user.svg"
 const SidebarUserDetails = ({ toggleClick, show }) => {
   return (
     <div className="mb-[24px]">
       <div className="logos flex justify-between items-center">
-        <img
-          onClick={toggleClick}
-          src={hamburger}
-          alt="Fabits Logo"
-          className="w-[24] lg:hidden"
-        />
-        <img src={logo} alt="Fabits Logo" className="w-[120px]" />
-        <img src={bell} alt="notification" className="w-[24px] h-[24px]" />
+        <div className="flex gap-4">
+          <img
+            onClick={toggleClick}
+            src={hamburger}
+            alt="Fabits Logo"
+            className="w-[24] lg:hidden"
+          />
+          <img src={logo} alt="Fabits Logo" className="w-[120px]" />
+        </div>
+        <div className="flex gap-4">
+          <img src={bell} alt="notification" className="w-[24px] h-[24px]" />
+          <img
+            src={userIcon}
+            alt="notification"
+            className="w-[24px] h-[24px] lg:hidden"
+          />
+        </div>
       </div>
 
       {show && (

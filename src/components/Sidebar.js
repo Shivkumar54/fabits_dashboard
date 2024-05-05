@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import SidebarUserDetails from "../layouts/SidebarUserDetails"
 import SidebarLists from "../layouts/SidebarLists"
 import { sideData } from "../data/sidebarlistdata"
@@ -9,31 +9,11 @@ const Sidebar = () => {
   const finance = useSidebarFIlterdata(sideData, "finance")
   const insurance = useSidebarFIlterdata(sideData, "insurance")
 
-  const [show, setShow] = useState(true)
-  const [isVisible, setIsVisible] = useState(true)
+  const [show, setShow] = useState(window.innerWidth >= 1024 ? true : false)
 
   const toggleClick = () => {
-    if (isVisible) {
-      setShow((prevState) => !prevState)
-    }
+    setShow((prevState) => !prevState)
   }
-
-  const detectHamburgerVisibility = () => {
-    const screenWidth = window.innerWidth
-    if (screenWidth <= 768) {
-      setIsVisible(true)
-    } else {
-      setIsVisible(false)
-    }
-  }
-
-  useEffect(() => {
-    detectHamburgerVisibility()
-    window.addEventListener("resize", detectHamburgerVisibility)
-    return () => {
-      window.removeEventListener("resize", detectHamburgerVisibility)
-    }
-  }, [])
 
   return (
     <div className="lg:mt-[50px] w-full">

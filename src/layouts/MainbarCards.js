@@ -1,38 +1,22 @@
 import React, { useEffect, useState } from "react"
 import boost from "../images/MainCards/boost.svg"
 import mobileCardImg from "../images/MainCards/mobileCardImage.svg"
+import spark from "../images/MainCards/spark.svg"
+import usestyles from "../hooks/usestyles"
 
 const MainbarCards = ({ data }) => {
+  const { defaultSyle, styles, excellentStyle, weakStyle, redStyle } =
+    usestyles()
+
   const [textColor, setTextColor] = useState("")
   const [bgColor, setBgColor] = useState("")
   const [selectedColor, setSelectedColor] = useState("")
 
-  const defaultSyle = {
-    color: "#3B4D80",
-    backgroundColor: "#A8B1CB",
-    completedColor: "#3B4D80",
-  }
-  const styles = {
-    color: "#74A766",
-    backgroundColor: "#C5DEBD",
-    completedColor: "#5B8350",
-  }
-  const excellentStyle = {
-    color: "#5B8350",
-    backgroundColor: "#C5DEBD",
-    completedColor: "#5B8350",
-  }
-  const weakStyle = {
-    color: "#D99E16",
-    backgroundColor: "#F7DA95",
-    completedColor: "#D99E16",
-  }
-  const redStyle = {
-    color: "#E85D5D",
-    backgroundColor: "#FFB9B9",
-    completedColor: "#E85D5D",
-  }
   useEffect(() => {
+    colorProvider()
+  }, [data.goalhealth])
+
+  const colorProvider = () => {
     if (data.goalhealth === "Good") {
       setTextColor(styles.color)
       setBgColor(styles.backgroundColor)
@@ -54,7 +38,8 @@ const MainbarCards = ({ data }) => {
       setBgColor(defaultSyle.backgroundColor)
       setSelectedColor(defaultSyle.completedColor)
     }
-  }, [data.goalhealth])
+  }
+
   return (
     <div className="h-[500px] w-full border-2 p-[24px] rounded-xl hover:shadow-lg transition-all">
       <div className="flex w-full gap-[16px] mb-[24px]">
@@ -131,8 +116,9 @@ const MainbarCards = ({ data }) => {
             <img src={boost} alt="boost" />
             <h1 className="text-[12px]">Boost to reach your goal sooner!</h1>
           </div>
-          <button className="w-full h-[40px] border-2 rounded-md font-medium border-[#D3DBEC]">
-            Boost
+          <button className="w-full h-[40px] lg:border-2 rounded-md font-medium border-0 border-[#D3DBEC] bg-[#41558D] text-white lg:text-black lg:bg-transparent flex items-center justify-center">
+            <img src={spark} alt="spark" className="lg:hidden" />
+            <span>Boost</span>
           </button>
         </div>
       )}

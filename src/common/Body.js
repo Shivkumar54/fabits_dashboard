@@ -17,7 +17,7 @@ const Body = () => {
   return (
     <div className="  lg:flex lg:gap-[2px] w-full">
       {show && (
-        <div className="w-full sidebar lg:w-[296px] block p-12 pt-6 pr-8 pb-6 pl-8 border  border-[#D3DBEC] ">
+        <div className="w-full  px-2 py-4 sidebar lg:w-[296px] block lg:p-12 lg:pt-6 lg:pr-8 lg:pb-6 lg:pl-8 border  border-[#D3DBEC] ">
           <Sidebar />
         </div>
       )}

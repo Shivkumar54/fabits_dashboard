@@ -20,13 +20,13 @@ const MainbarHeader = () => {
               </option>
             </select>
           </div>
-          <div className="flex gap-[24px]">
+          <div className="flex gap-[16px]">
             <div className="search flex items-center">
               <img src={search} alt="" className="ml-2 absolute z-30" />
               <input
                 type="search"
                 placeholder="Search"
-                className=" border-2 relative w-[292px] lg:w-[246px] h-[40px] border-[#D3DBEC] outline outline-none pl-9 rounded-md"
+                className=" border-2 relative w-[272px] lg:w-[246px] h-[40px] border-[#D3DBEC] outline outline-none pl-9 pr-3 rounded-md"
               />
             </div>
             <img src={mobileFilter} alt="" className="lg:hidden" />
